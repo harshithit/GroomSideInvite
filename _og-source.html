@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Playfair+Display:wght@600&family=Noto+Serif+Devanagari:wght@600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    background:#F6F2E7;
+    font-family:'Cormorant Garamond',serif;
+    color:#4A362F;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .pattern{
+    position:absolute; inset:0;
+    background-image:url('assets/patterns/floral-beige.webp');
+    background-size:300px auto;
+    opacity:.55;
+  }
+  .frame{
+    position:absolute; inset:26px;
+    border:1.5px solid #A67D3D;
+    box-shadow:0 0 0 5px #F6F2E7, 0 0 0 6.5px #C9A15C;
+    border-radius:8px;
+  }
+  .inner{position:relative; text-align:center; z-index:2; padding-top:6px}
+  .shloka{font-family:'Noto Serif Devanagari',serif;color:#7A1B2E;font-size:19px;font-weight:600;letter-spacing:.02em}
+  .sai{font-family:'Noto Serif Devanagari',serif;color:#8C5A10;font-size:16px;font-weight:600;margin-top:6px}
+  .logo{width:120px;margin:14px auto 6px;display:block}
+  .names{font-family:'Great Vibes',cursive;color:#7A1B2E;font-size:78px;line-height:1.05}
+  .amp{font-family:'Cormorant Garamond',serif;font-style:italic;color:#7A6558;font-size:26px;margin:2px 0}
+  .rule{width:150px;height:1px;background:#A67D3D;opacity:.6;margin:16px auto}
+  .date{font-family:'Playfair Display',serif;color:#7A1B2E;font-size:27px;letter-spacing:.05em}
+  .venue{font-size:19px;color:#7A6558;letter-spacing:.06em;margin-top:6px}
+  .flower{position:absolute;z-index:3}
+  .f1{top:-14px;left:-18px;width:210px}
+  .f2{bottom:-10px;right:-6px;width:160px;transform:scaleX(-1)}
+  .camel{position:absolute;bottom:34px;left:56px;width:130px;z-index:3;opacity:.95}
+  .eleph{position:absolute;bottom:34px;right:56px;width:130px;z-index:3;opacity:.95;transform:scaleX(-1)}
+  img{display:block;max-width:100%}
+</style>
+</head>
+<body>
+  <div class="pattern"></div>
+  <div class="frame"></div>
+
+  <img class="flower f1" src="assets/flowers/hibiscus.webp" alt="">
+  <img class="flower f2" src="assets/flowers/red-flower.webp" alt="">
+  <img class="camel" src="assets/animals/camel.webp" alt="">
+  <img class="eleph" src="assets/animals/elephant.webp" alt="">
+
+  <div class="inner">
+    <p class="shloka">॥ श्री गणेशाय नमः ॥</p>
+    <p class="sai">ॐ साईं राम</p>
+    <img class="logo" src="assets/logo/hi-logo.webp" alt="">
+    <p class="names">Harshit</p>
+    <p class="amp">with</p>
+    <p class="names">Ishita</p>
+    <div class="rule"></div>
+    <p class="date">19th &amp; 20th October 2026</p>
+    <p class="venue">R CHANDRA PALACE &middot; CHOMU, JAIPUR</p>
+  </div>
+</body>
+</html>

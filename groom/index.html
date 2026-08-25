@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Harshit &amp; Ishita — We're Getting Married</title>
+<meta name="description" content="Harshit &amp; Ishita are getting married — 19th &amp; 20th October 2026 at R Chandra Palace, Chomu, Jaipur. Come and bless us." />
+<meta name="theme-color" content="#F6F2E7" />
+
+<!-- Social preview (WhatsApp / iMessage / Facebook / X).
+     These URLs must be ABSOLUTE — relative paths do not work for previews.
+     Run  ./set-domain.sh your-domain.com  to fill them in. -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Harshit &amp; Ishita" />
+<meta property="og:title" content="Harshit &amp; Ishita — We're Getting Married" />
+<meta property="og:description" content="19th &amp; 20th October 2026 · R Chandra Palace, Chomu, Jaipur. Come and bless us." />
+<meta property="og:url" content="https://ishitaandharshit.one/groom/" />
+<meta property="og:image" content="https://ishitaandharshit.one/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Harshit &amp; Ishita — 19th &amp; 20th October 2026" />
+<meta property="og:locale" content="en_IN" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Harshit &amp; Ishita — We're Getting Married" />
+<meta name="twitter:description" content="19th &amp; 20th October 2026 · R Chandra Palace, Chomu, Jaipur." />
+<meta name="twitter:image" content="https://ishitaandharshit.one/assets/og-image.jpg" />
+
+<link rel="icon" href="/assets/logo/hi-logo.png" />
+<link rel="apple-touch-icon" href="/assets/logo/hi-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;1,500&family=Noto+Serif+Devanagari:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- ============ 1. ENVELOPE OPENER ============ -->
+  <div id="envelope-screen">
+    <div class="envelope-shloka shloka" id="envelope-shloka"></div>
+
+    <div class="envelope-scene" id="envelope-scene">
+      <div class="envelope-back"></div>
+
+      <div class="envelope-card">
+        <p class="envelope-card-reveal script-font">You're Invited</p>
+      </div>
+
+      <div class="envelope-pocket"></div>
+
+      <div class="envelope-flap" id="envelope-flap"></div>
+
+      <!-- Seal lives outside .envelope-flap: the flap's clip-path would
+           otherwise clip it away at the apex where the triangle narrows. -->
+      <div class="wax-seal">
+        <picture class="wax-seal-logo">
+          <source srcset="/assets/logo/hi-logo.webp" type="image/webp">
+          <img src="/assets/logo/hi-logo.png" alt="Harshit &amp; Ishita monogram" />
+        </picture>
+      </div>
+
+      <picture class="envelope-flower hibiscus" aria-hidden="true">
+        <source srcset="/assets/flowers/hibiscus.webp" type="image/webp">
+        <img src="/assets/flowers/hibiscus.png" alt="" />
+      </picture>
+      <picture class="envelope-flower red-flower" aria-hidden="true">
+        <source srcset="/assets/flowers/red-flower.webp" type="image/webp">
+        <img src="/assets/flowers/red-flower.png" alt="" />
+      </picture>
+    </div>
+
+    <button id="tap-to-open" class="pill-btn gold-pill" type="button">
+      <span>Tap to Open</span>
+    </button>
+  </div>
+  <div id="flash-overlay" aria-hidden="true"></div>
+
+  <!-- petal shower layer (populated on open, then cleaned up) -->
+  <div id="petal-layer" aria-hidden="true"></div>
+
+  <!-- Monogram watermark, top-left and bottom-right of the viewport.
+       Section backgrounds are opaque, so this sits as a faint layer above
+       them rather than on <body>, where it would be painted over. -->
+  <div id="page-watermark" aria-hidden="true"></div>
+
+  <!-- ============ BACKGROUND MUSIC ============ -->
+  <!-- preload="none" so the 3MB track isn't fetched until the invite is
+       opened; playback starts from the tap gesture, which browsers allow. -->
+  <audio id="bg-music" loop preload="none">
+    <source src="/assets/audio/wedding-flute-mashup.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="music-toggle" class="music-toggle" type="button" hidden
+          aria-label="Pause music" aria-pressed="true">
+    <svg class="icon-sound-on" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 9v6h4l5 4V5L8 9H4z"/>
+      <path class="wave" d="M16.5 8.5a5 5 0 0 1 0 7" fill="none" stroke-width="1.8" stroke-linecap="round"/>
+      <path class="wave" d="M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <svg class="icon-sound-off" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 9v6h4l5 4V5L8 9H4z"/>
+      <path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main id="main-content" hidden>
+
+    <!-- ============ 2. HERO ============ -->
+    <section id="hero" class="section">
+      <div class="hero-lanterns lantern-pair" id="hero-lanterns" aria-hidden="true"></div>
+      <div class="shloka" id="hero-shloka"></div>
+      <div class="hero-arch-wrap">
+        <picture class="hero-arch" aria-hidden="true">
+          <source srcset="/assets/decor/arch.webp" type="image/webp">
+          <img src="/assets/decor/arch.png" alt="" />
+        </picture>
+
+        <!-- Both sit inside the arch opening, which runs ~55–61% wide
+             from y 40% downward. Names occupy the upper opening; the
+             couple stands at the base. -->
+        <div class="hero-names">
+          <p class="hero-groom-name script-font" id="hero-groom-name">Harshit</p>
+          <p class="hero-with">with</p>
+          <p class="hero-bride-name script-font" id="hero-bride-name">Ishita</p>
+        </div>
+
+        <picture class="hero-couple" aria-hidden="true">
+          <source srcset="/assets/decor/couple.webp" type="image/webp">
+          <img src="/assets/decor/couple.png" alt="" />
+        </picture>
+      </div>
+
+      <div class="scratch-wrap">
+        <div class="scratch-reveal" id="scratch-reveal-message">
+          <p class="scratch-date" id="scratch-date">20th October 2026</p>
+        </div>
+        <canvas id="scratch-canvas" width="280" height="64"></canvas>
+        <div class="scratch-hint" id="scratch-hint">
+          <span class="sparkle">✦</span>
+          <span>Scratch to Reveal</span>
+          <span class="pointer-finger">👆</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2b. LINEAGE / BLESSINGS ============ -->
+    <section id="lineage" class="section reveal-on-scroll">
+      <div class="lineage-inner gold-frame" id="lineage-content"><!-- filled by JS --></div>
+    </section>
+
+    <!-- ============ 3. SAVE THE DATE / COUNTDOWN ============ -->
+    <section id="countdown-section" class="section reveal-on-scroll">
+      <div class="floral-strip" aria-hidden="true"></div>
+      <button class="pill-btn gold-pill save-date-pill" type="button">Save the Date</button>
+      <p class="wedding-date-display" id="wedding-date-display">12th December 2026</p>
+
+      <div class="countdown-grid" id="countdown-grid">
+        <div class="countdown-box"><span class="cd-value" id="cd-days">00</span><span class="cd-label">Days</span></div>
+        <div class="countdown-box"><span class="cd-value" id="cd-hours">00</span><span class="cd-label">Hrs</span></div>
+        <div class="countdown-box"><span class="cd-value" id="cd-mins">00</span><span class="cd-label">Min</span></div>
+        <div class="countdown-box"><span class="cd-value" id="cd-secs">00</span><span class="cd-label">Sec</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 4. EVENTS SCHEDULE ============ -->
+    <section id="events" class="section reveal-on-scroll">
+      <h2 class="section-title script-font">Events Schedule</h2>
+      <div class="events-list" id="events-list"><!-- filled by JS --></div>
+    </section>
+
+    <!-- ============ 5. MEET THE COUPLE ============ -->
+    <section id="couple" class="section reveal-on-scroll">
+      <h2 class="section-title script-font">Meet the Couple</h2>
+      <div class="couple-grid" id="couple-grid"><!-- filled by JS --></div>
+    </section>
+
+    <!-- ============ 6. OUR LOVE STORY ============ -->
+    <section id="story" class="section reveal-on-scroll">
+      <h2 class="section-title script-font">Our Love Story</h2>
+      <div class="chat-thread" id="chat-thread"><!-- filled by JS --></div>
+      <figure class="story-photo-frame" id="story-photo-frame">
+        <div class="story-photo-inner ph-photo" id="story-photo"></div>
+        <figcaption class="location-tag" id="story-location">📍 Udaipur, Rajasthan</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ 7. MOMENTS OF LOVE ============ -->
+    <section id="moments" class="section reveal-on-scroll">
+      <div class="particles" id="moments-particles" aria-hidden="true"></div>
+      <h2 class="section-title script-font moments-title">Moments of Love</h2>
+      <div class="polaroid-scatter" id="polaroid-scatter"><!-- filled by JS --></div>
+    </section>
+
+    <!-- ============ 8. WHERE WE CELEBRATE ============ -->
+    <section id="location" class="section reveal-on-scroll">
+      <h2 class="section-title script-font">Where We Celebrate</h2>
+      <p class="venue-name" id="venue-name">The Grand Palace Gardens</p>
+      <p class="venue-address" id="venue-address">Lake Pichola Road, Udaipur, Rajasthan 313001</p>
+      <div class="map-embed">
+        <iframe
+          id="map-iframe"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="">
+        </iframe>
+      </div>
+      <a class="pill-btn gold-pill" id="directions-link" href="#" target="_blank" rel="noopener noreferrer">Get Directions</a>
+    </section>
+
+    <!-- ============ 8b. RSVP ============ -->
+    <section id="rsvp" class="section reveal-on-scroll">
+      <h2 class="section-title script-font">Come &amp; Bless Us</h2>
+      <p class="rsvp-eyebrow">Your presence is the blessing we wish for</p>
+      <div class="rsvp-inner gold-frame" id="rsvp-content"><!-- filled by JS --></div>
+    </section>
+
+    <!-- ============ 9. FOOTER ============ -->
+    <footer id="footer">
+      <p class="footer-label">With Love</p>
+      <p class="footer-names script-font" id="footer-names">Ananya &amp; Roopesh</p>
+      <p class="footer-flowers" aria-hidden="true">❀ &nbsp; ❀ &nbsp; ❀</p>
+      <p class="footer-date" id="footer-date">19th &amp; 20th October 2026</p>
+    </footer>
+
+  </main>
+
+  <script src="/js/config.js"></script>
+  <script src="/groom/js/overrides.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
