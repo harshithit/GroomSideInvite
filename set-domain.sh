@@ -13,7 +13,7 @@
 set -euo pipefail
 
 if [ $# -ne 1 ]; then
-  echo "usage: $0 groomside.ishitaandharshit.one" >&2
+  echo "usage: $0 ishitaandharshit.one" >&2
   exit 1
 fi
 

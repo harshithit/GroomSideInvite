@@ -31,8 +31,9 @@ touching.
 `groom/index.html` is the same invite with two differences, applied by
 `groom/js/overrides.js`:
 
-- **"Harshit weds Ishita"** in the Blessings section (groom's name first,
-  instead of the default "Ishita weds Harshit")
+- **Harshit's name leads** wherever the two are named together — the
+  "Harshit weds Ishita" blessing line, the Meet the Couple cards, and the
+  footer (the hero reads "Harshit with Ishita" on both versions)
 - **Only Harshit's grandparents** are shown in the blessing line
 
 Everything else — dates, venue, event schedule, love story, gallery, RSVP —

@@ -47,9 +47,9 @@ const WEDDING = {
 
   monogram: "HI",
 
-  // Only the Blessings section's "X weds Y" line is order-sensitive — the
-  // hero already reads "Harshit with Ishita" structurally either way. Set
-  // true for a groom's-side card. See groom/js/config.js for that variant.
+  // Whose name leads wherever the two are named together: the "X weds Y"
+  // line, the couple cards, the footer. The hero is structurally
+  // groom-first either way. See groom/js/overrides.js for that variant.
   groomFirst: false,
 
   ganesha: {

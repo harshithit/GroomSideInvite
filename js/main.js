@@ -73,11 +73,16 @@
      Render content from WEDDING config
      =================================================== */
   function renderContent() {
+    // Whose name leads wherever the two are named together. The hero is the
+    // one exception — its markup reads "<groom> with <bride>" structurally.
+    const first = WEDDING.groomFirst ? WEDDING.groom : WEDDING.bride;
+    const second = WEDDING.groomFirst ? WEDDING.bride : WEDDING.groom;
+
     $("#hero-groom-name").textContent = WEDDING.groom.fullName;
     $("#hero-bride-name").textContent = WEDDING.bride.fullName;
     $("#wedding-date-display").textContent = WEDDING.weddingDateDisplay;
     $("#scratch-date").textContent = WEDDING.weddingDateDisplay;
-    $("#footer-names").innerHTML = `${WEDDING.bride.fullName} &amp; ${WEDDING.groom.fullName}`;
+    $("#footer-names").innerHTML = `${first.fullName} &amp; ${second.fullName}`;
     $("#venue-name").textContent = WEDDING.venue.name;
     $("#venue-address").textContent = WEDDING.venue.address;
     $("#story-location").textContent = `📍 ${WEDDING.storyPhoto.location}`;
@@ -119,11 +124,6 @@
       `
       )
       .join("");
-    // "X weds Y" order — groom-first for the groom's-side card, bride-first
-    // by default. Only this phrase is order-sensitive; hero already reads
-    // "Harshit with Ishita" structurally regardless of this flag.
-    const first = WEDDING.groomFirst ? WEDDING.groom : WEDDING.bride;
-    const second = WEDDING.groomFirst ? WEDDING.bride : WEDDING.groom;
     lineage.innerHTML = `
       <p class="lineage-blessing">With the blessings of our<strong>Beloved Grandparents</strong></p>
       <div class="grandparents-wrap">${gpCols}</div>
@@ -139,7 +139,7 @@
 
     // Meet the couple
     const coupleGrid = $("#couple-grid");
-    [WEDDING.bride, WEDDING.groom].forEach((person) => {
+    [first, second].forEach((person) => {
       const card = document.createElement("div");
       card.className = "couple-card";
       const portrait = document.createElement("div");
@@ -174,7 +174,7 @@
     });
 
     const storyPhoto = $("#story-photo");
-    const storyCaption = `${WEDDING.bride.nickname} + ${WEDDING.groom.nickname}`;
+    const storyCaption = `${first.nickname} + ${second.nickname}`;
     function storyFallback() {
       storyPhoto.classList.add("ph-photo");
       const span = document.createElement("span");
